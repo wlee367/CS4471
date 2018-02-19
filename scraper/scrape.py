@@ -74,7 +74,7 @@ for j, code in enumerate(courseCodes):
 
                 # (course+ " "+ code+ " " + a[0]+" "+a[1]+ " " + a[2] + " " + daySequence)
                 # data.append([split[0] + " " + split[1] + " " + to_military(a[0]) + " " + to_military(a[1]) + " " + a[2] + " " + daySequence]
-                data.append(["course"+ " " + to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
+                data.append([course+ " " + code + " " + to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
 f.writerows(data)
 
 
