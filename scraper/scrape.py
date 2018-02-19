@@ -24,7 +24,7 @@ data = []
 # Where H is Thursday.
 days = ["M","T","W","H","F"]
 
-f = csv.writer(open("Data.csv", "w"))
+f = csv.writer(open("output.csv", "w"))
 data.append(["Course Code Start End Location Days"])
 
 for j, code in enumerate(courseCodes):
@@ -74,17 +74,18 @@ for j, code in enumerate(courseCodes):
 
                 # (course+ " "+ code+ " " + a[0]+" "+a[1]+ " " + a[2] + " " + daySequence)
                 # data.append([split[0] + " " + split[1] + " " + to_military(a[0]) + " " + to_military(a[1]) + " " + a[2] + " " + daySequence]
-                data.append("course"+ " " + a[0]+" "+a[1]+ " " + a[2] + " " + daySequence)
-    # print(data)
+                data.append(["course"+ " " + to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
+f.writerows(data)
+
 
 ## in the test array lies all the course and code entries
-    for i in data:
-        for j in test:
-            if 'course' in data:
-                data[i] == test[j]
-    print(data)
+# for i in data:
+#     for j in test:
+#         if 'course' in data:
+#             data[i] == test[j]
+print(data)
 
-    f.writerows(data)
+
 
 
 
