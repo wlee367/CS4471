@@ -42,19 +42,19 @@ for j, code in enumerate(courseCodes):
     soup = BeautifulSoup(html, "html.parser")
 
     table = soup.find(class_='table table-striped')
-    test = []
-    captions = soup.find_all('h4')
-    for i, caption in enumerate(captions):
-         strings = caption.text.split()
-         course = strings[0]
-         code = strings[1]
-         test.append([course+" " +code])
-         # print(test[i])
-
-         
     for counter, t in enumerate(soup.find_all('table')):
-        body = t.find_all('tr')
-        for row in body:
+        captions = soup.find_all('h4')
+        # for i, caption in enumerate(captions):
+            # print(caption)
+        try:
+            strings = captions[counter].text.split()    
+            course = strings[0]
+            code = strings[1]
+        except:
+            pass
+        # soup.find_next('h4')
+
+        for row in soup.find_all('tr'):
             a = []
             l = 0
             daySequence = ""
@@ -69,10 +69,8 @@ for j, code in enumerate(courseCodes):
                     except:
                         pass
             if l == 3:
-
-                # (course+ " "+ code+ " " + a[0]+" "+a[1]+ " " + a[2] + " " + daySequence)
-                # data.append([split[0] + " " + split[1] + " " + to_military(a[0]) + " " + to_military(a[1]) + " " + a[2] + " " + daySequence]
-                data.append([str(test[counter:counter+1])+" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])                  
+                data.append([course+ " " + code +" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])                  
+                # print([course+" " + code +" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
 # print(data)
 f.writerows(data)
 
