@@ -42,37 +42,75 @@ for j, code in enumerate(courseCodes):
     soup = BeautifulSoup(html, "html.parser")
 
     table = soup.find(class_='table table-striped')
-    for counter, t in enumerate(soup.find_all('table')):
-        captions = soup.find_all('h4')
-        # for i, caption in enumerate(captions):
-            # print(caption)
-        try:
-            strings = captions[counter].text.split()    
-            course = strings[0]
-            code = strings[1]
-        except:
-            pass
-        # soup.find_next('h4')
+    title = soup.find_all('h4')
+    for t in title:
+        captions = t.text.split()
+        course = captions[0]
+        code = captions[1]
+        print(course + code)
 
-        for row in soup.find_all('tr'):
-            a = []
-            l = 0
-            daySequence = ""
-            for i, col in enumerate(row.find_all('td')):
-                if i > 3 and i < 9:
-                    if col.contents[0] and col.contents[0].strip():
-                        daySequence = daySequence + days[i - 4]
-                elif i > 8 and i < 12:
+        for t in soup.find_all('table'):
+            # print('here2')
+            for row in t.find_all('tr'):
+                # print('line 55')
+                a = []
+                l = 0
+                daySequence = ""
+
+                for i, col in enumerate(row.find_all('td')):
                     try:
-                        a.append(col.contents[0])
-                        l = l + 1
+                        if i > 3 and i < 9:
+                            if col.contents[0] and col.contents[0].strip():
+                                daySequence = daySequence + days[i-4]
+                                # print('does this ever fire')
+                        elif i>8 and i<12:
+                            try:
+                                a.append(col.contents[0])
+                                l = l+1
+                            except:
+                                # print('pass')
+                                pass
+                        if l == 3:
+                            data.append([captions[0]+ " " + captions[1] +" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])                  
+                            print([captions[0]+" " + captions[1]+" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
                     except:
+                        # print('this code block is not being executed')
                         pass
-            if l == 3:
-                data.append([course+ " " + code +" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])                  
-                # print([course+" " + code +" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
 # print(data)
 f.writerows(data)
+
+#     for counter, t in enumerate(soup.find_all('table')):
+        
+#         # for i, caption in enumerate(captions):
+#             # print(caption)
+#         try:
+#             captions = t.find_all('h4')
+#             strings = captions[0].text.split()    
+#             course = strings[0]
+#             code = strings[1]
+#         except:
+#             pass
+#         # soup.find_next('h4')
+
+#         for row in soup.find_all('tr'):
+#             a = []
+#             l = 0
+#             daySequence = ""
+#             for i, col in enumerate(row.find_all('td')):
+#                 if i > 3 and i < 9:
+#                     if col.contents[0] and col.contents[0].strip():
+#                         daySequence = daySequence + days[i - 4]
+#                 elif i > 8 and i < 12:
+#                     try:
+#                         a.append(col.contents[0])
+#                         l = l + 1
+#                     except:
+#                         pass
+#             if l == 3:
+#                 data.append([strings[0]+ " " + strings[1] +" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])                  
+#                 print([strings[0]+" " + strings[1]+" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
+# # print(data)
+# f.writerows(data)
 
 
 
