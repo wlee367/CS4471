@@ -42,13 +42,14 @@ for j, code in enumerate(courseCodes):
     soup = BeautifulSoup(html, "html.parser")
 
     table = soup.find(class_='table table-striped')
-    captions = soup.find_all('h4')
     test = []
+    captions = soup.find_all('h4')
     for caption in captions:
-        strings = caption.text.split()
-        course = strings[0]
-        code = strings[1]
-        test.append(course + " " + code )
+         strings = caption.text.split()
+         course = strings[0]
+         code = strings[1]
+         test.append([course+" " +code])
+
     # print(test)
          
     for t in soup.find_all('table'):
@@ -74,16 +75,14 @@ for j, code in enumerate(courseCodes):
 
                 # (course+ " "+ code+ " " + a[0]+" "+a[1]+ " " + a[2] + " " + daySequence)
                 # data.append([split[0] + " " + split[1] + " " + to_military(a[0]) + " " + to_military(a[1]) + " " + a[2] + " " + daySequence]
-                data.append([course+ " " + code + " " + to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
+                data.append([to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
+    for i in test:
+        data.append([i])
+                   
+print(data)
 f.writerows(data)
 
 
-## in the test array lies all the course and code entries
-# for i in data:
-#     for j in test:
-#         if 'course' in data:
-#             data[i] == test[j]
-print(data)
 
 
 
