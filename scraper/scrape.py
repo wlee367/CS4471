@@ -44,24 +44,22 @@ for j, code in enumerate(courseCodes):
     table = soup.find(class_='table table-striped')
     test = []
     captions = soup.find_all('h4')
-    for caption in captions:
+    for i, caption in enumerate(captions):
          strings = caption.text.split()
          course = strings[0]
          code = strings[1]
          test.append([course+" " +code])
+         # print(test[i])
 
-    # print(test)
          
-    for t in soup.find_all('table'):
+    for counter, t in enumerate(soup.find_all('table')):
         body = t.find_all('tr')
         for row in body:
-
             a = []
             l = 0
             daySequence = ""
             for i, col in enumerate(row.find_all('td')):
                 if i > 3 and i < 9:
-
                     if col.contents[0] and col.contents[0].strip():
                         daySequence = daySequence + days[i - 4]
                 elif i > 8 and i < 12:
@@ -70,16 +68,12 @@ for j, code in enumerate(courseCodes):
                         l = l + 1
                     except:
                         pass
-
             if l == 3:
 
                 # (course+ " "+ code+ " " + a[0]+" "+a[1]+ " " + a[2] + " " + daySequence)
                 # data.append([split[0] + " " + split[1] + " " + to_military(a[0]) + " " + to_military(a[1]) + " " + a[2] + " " + daySequence]
-                data.append([to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])
-    for i in test:
-        data.append([i])
-                   
-print(data)
+                data.append([str(test[counter:counter+1])+" "+to_military(a[0])+" "+to_military(a[1])+ " " + a[2] + " " + daySequence])                  
+# print(data)
 f.writerows(data)
 
 
