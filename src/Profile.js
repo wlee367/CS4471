@@ -5,15 +5,10 @@ class Profile extends Component {
         return (
             <div>
                 <h2>PROFILE</h2>
-                <p>Mauris sem velit, vehicula eget sodales vitae,
-                    rhoncus eget sapien:</p>
-                <ol>
-                    <li>Nulla pulvinar diam</li>
-                    <li>Facilisis bibendum</li>
-                    <li>Vestibulum vulputate</li>
-                    <li>Eget erat</li>
-                    <li>Id porttitor</li>
-                </ol>
+                <hr/>
+                <h3>First Name:</h3><br/>
+                <h3>Last Name:</h3><br/>
+                <h3>User Email:</h3>
             </div>
         );
     }
