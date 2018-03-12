@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './CSS/App.css';
 import avatar from './assets/avatar.png';
 import {
     Route,
