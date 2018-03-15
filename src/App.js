@@ -7,9 +7,7 @@ import {
     HashRouter
 } from "react-router-dom";
 import Main from "./Main";
-import Berries from "./berries";
 
-console.log("App js");
 
 class App extends Component{
 
@@ -39,9 +37,7 @@ class App extends Component{
                 </form>
                 <div>
                     <NavLink exact to={"/main"}>Log In</NavLink><br/>
-                    <NavLink exact to={"/berries"}>BERRIES</NavLink>
-                    <Route path={"/main"} component={Main}/>
-                    <Route exact path={"/berries"} component={Berries}/></div>
+                    <Route path={"/main"} component={Main}/></div>
                 </div>
             </HashRouter>
 
@@ -49,6 +45,5 @@ class App extends Component{
     }
 }
 
-console.log("App js exit");
 
 export default App;

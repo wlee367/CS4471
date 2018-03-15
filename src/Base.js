@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import App from './App.js';
 
-console.log("Base in");
 
 class Base extends Component {
     render() {
@@ -19,6 +18,5 @@ class Base extends Component {
     }
 }
 
-console.log("Base out");
 
 export default Base;
