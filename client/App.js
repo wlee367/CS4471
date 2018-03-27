@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './CSS/App.css';
-import avatar from './assets/avatar.png';
+import './css/App.css';
+// import avatar from './assets/avatar.png';
 import {
     Route,
     NavLink,
@@ -23,7 +23,7 @@ class App extends Component{
                 <form>
                     <center><h1>Western Room Booker</h1></center>
                     <div className="imgcontainer">
-                        <img src={avatar} alt="Missing string" width={150} height={150}/>
+                        {/* <img src={avatar} alt="Missing string" width={150} height={150}/> */}
                     </div>
 
                     <div className="container">
