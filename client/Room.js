@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import $ from 'jquery';
-import 'fullcalendar';
+// import $ from 'jquery';
+// import 'fullcalendar';
 
 class Room extends Component {
 
