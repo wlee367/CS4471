@@ -12,7 +12,7 @@
 <body>
     <div id="root"></div>
     <div>
-            <% Courses.forEach((c) => {
+            <!-- <% Courses.forEach((c) => {
                 %> <div><%= c.code %> </div>
                 %> <div><%= c.start %></div>
                 %> <div><%= c.end %></div>
@@ -23,7 +23,15 @@
 
 
 
-                <%}); %>
+                <%}); %> -->
+                <% buildings.forEach((c) => {
+                    %> <div><%= c %> </div>
+
+                    %> <div><hr></div>
+    
+    
+    
+                    <%}); %>
     </div>
     
 
