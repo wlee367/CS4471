@@ -11,7 +11,24 @@
 
 <body>
     <div id="root"></div>
-    <!-- <script type="text/javascript" src="/static/js/main.742d51df.js"></script> -->
+    <div>
+            <% Courses.forEach((c) => {
+                %> <div><%= c.code %> </div>
+                %> <div><%= c.start %></div>
+                %> <div><%= c.end %></div>
+                %> <div><%= c.building %></div>
+                %> <div><%= c.room %></div>
+                %> <div><%= c.days %></div>
+                %> <div><hr></div>
+
+
+
+                <%}); %>
+    </div>
+    
+
+    <script type="text/javascript" src="/static/js/main.742d51df.js"></script>
+
 </body>
 <script src="bundle.js"></script>
 
