@@ -22,12 +22,14 @@ class Main extends Component {
                         <li><NavLink exact to={"/main/search"}>Search</NavLink></li>
                         <li><NavLink exact to={"/main/profile"} >Profile</NavLink></li>
                         <li><NavLink exact to={"/main/settings"} >Settings</NavLink></li>
+                        <li><NavLink exact to={"/main/bookings"} >Bookings</NavLink></li>
                     </ul>
                     <div className="content">
                         <Route  exact path={"/main"} component={Home}/>
                         <Route exact path={"/main/search"} component={Search}/>
                         <Route  exact path={"/main/profile"} component={Profile}/>
                         <Route  exact path={"/main/settings"} component={Settings}/>
+                        <Route  exact path={"/main/bookings"} component={Bookings}/>
                     </div>
                 </div>
             </HashRouter>
