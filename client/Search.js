@@ -14,14 +14,7 @@ class Search extends Component {
                 <hr/>
                 <h3>Please choose a building:</h3>
                 <select>
-                    <option>3M Centre</option>
-                    <option>Advanced Facility for Avian Research</option>
-                    <option>Allyn & Betty Taylor Library</option>
-                    <option>Alumni Hall</option>
-                    <option>Chemistry Building</option>
-                    <option>D.B. Weldon Library</option>
-                    <option>Delaware Hall REsidence</option>
-                    <option>Elborn College</option>
+                    
                     <option selected>Building...</option>
                 </select>
 

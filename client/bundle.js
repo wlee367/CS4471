@@ -377,12 +377,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-2015, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 
@@ -24746,46 +24744,6 @@ var Search = function (_Component) {
                 _react2.default.createElement(
                     "select",
                     null,
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "3M Centre"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "Advanced Facility for Avian Research"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "Allyn & Betty Taylor Library"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "Alumni Hall"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "Chemistry Building"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "D.B. Weldon Library"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "Delaware Hall REsidence"
-                    ),
-                    _react2.default.createElement(
-                        "option",
-                        null,
-                        "Elborn College"
-                    ),
                     _react2.default.createElement(
                         "option",
                         { selected: true },
