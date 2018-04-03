@@ -17,7 +17,6 @@ ul.header li {
 ul.header {
     background-color: #808080;
     padding: 0;
-    border-radius: 10px;
 }
 ul.header li a {
     color: #000000;
@@ -41,6 +40,5 @@ ul.header li a {
 
 .active {
     background-color: #DCDCDC;
-    border-radius: 10px;
     border: 0;
 }

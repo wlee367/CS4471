@@ -2,6 +2,8 @@
 form {
   border: 3px solid #f1f1f1;
   background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 /* Full-width inputs */
@@ -15,14 +17,51 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+button[type=login] {
+  background: linear-gradient(green , darkgreen);
   border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
   width: 100%;
+}
+
+label[type=reg] {
+  background: linear-gradient(darkgray, gray);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 98%;
+}
+
+button[type=update] {
+  background: linear-gradient(to right, blueviolet , violet);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 /* Add a hover effect for buttons */
@@ -69,4 +108,20 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+
+label {
+  cursor:pointer
+}
+#form-switch {
+  display:none
+}
+#register-form {
+  display:none
+}
+#form-switch:checked~#register-form {
+  display:block
+}
+#form-switch:checked~#login-form {
+  display:none
 }
