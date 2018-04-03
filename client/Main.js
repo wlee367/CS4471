@@ -9,6 +9,7 @@ import Home from "./Home"
 import Profile from "./Profile"
 import Settings from "./Settings"
 import Search from "./Search"
+import Bookings from "./Bookings"
 
 
 class Main extends Component {

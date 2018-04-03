@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Profile extends Component {
+class Bookings extends Component {
     render() {
         return (
             <div>

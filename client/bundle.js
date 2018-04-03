@@ -377,10 +377,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
+ * Copyright 2013-2015, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  */
 
 
@@ -24276,6 +24278,10 @@ var _Search = __webpack_require__(90);
 
 var _Search2 = _interopRequireDefault(_Search);
 
+var _Bookings = __webpack_require__(92);
+
+var _Bookings2 = _interopRequireDefault(_Bookings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24349,6 +24355,15 @@ var Main = function (_Component) {
                                 { exact: true, to: "/main/settings" },
                                 'Settings'
                             )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                _reactRouterDom.NavLink,
+                                { exact: true, to: "/main/bookings" },
+                                'Bookings'
+                            )
                         )
                     ),
                     _react2.default.createElement(
@@ -24357,7 +24372,8 @@ var Main = function (_Component) {
                         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/main", component: _Home2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/main/search", component: _Search2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/main/profile", component: _Profile2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/main/settings", component: _Settings2.default })
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/main/settings", component: _Settings2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/main/bookings", component: _Bookings2.default })
                     )
                 )
             );
@@ -24878,6 +24894,75 @@ var Room = function (_Component) {
 }(_react.Component);
 
 exports.default = Room;
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Bookings = function (_Component) {
+    _inherits(Bookings, _Component);
+
+    function Bookings() {
+        _classCallCheck(this, Bookings);
+
+        return _possibleConstructorReturn(this, (Bookings.__proto__ || Object.getPrototypeOf(Bookings)).apply(this, arguments));
+    }
+
+    _createClass(Bookings, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    "h2",
+                    null,
+                    "Book Any Room"
+                ),
+                _react2.default.createElement(
+                    "a",
+                    { href: "mailto:bookroom@uwo.ca?subject=Room Reservation Request&body=\nName: %0A%0a Email address: %0A%0a\nPhone number: %0A%0a\nWhat is the date of your booking? %0A%0a Start Time: %0A%0a\nEnd Time: %0A%0a\nWho is this booking for: Department, Student Group or External group? %0A%0a What is the group name? %0A%0a\nIf this is a USC club booking have you submitted an event proposal to the USC? %0A%0a Is everyone attending a Western student, staff, or faculty member? %0A%0a\nWhat is the purpose of this booking? %0A%0a How many people will be attending? %0A%0a\nBuilding preference: %0A%0a\nRoom preference: %0A%0a Do you require multimedia equipment? %0A%0a\nPlease include any extra information about your booking here:" },
+                    "Request to Book a Room"
+                ),
+                _react2.default.createElement(
+                    "h2",
+                    null,
+                    "Book a Study Space"
+                ),
+                _react2.default.createElement(
+                    "a",
+                    { href: "https://www.lib.uwo.ca/services/studyspace.html" },
+                    "Western Libraries Study Spaces"
+                )
+            );
+        }
+    }]);
+
+    return Bookings;
+}(_react.Component);
+
+exports.default = Bookings;
 
 /***/ })
 /******/ ]);
