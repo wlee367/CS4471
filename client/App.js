@@ -20,19 +20,42 @@ class App extends Component{
         return (
             <HashRouter>
                 <div>
-                <form>
                     <center><h1>Western Room Booker</h1></center>
                     <div className="imgcontainer">
                         {/* <img src={avatar} alt="Missing string" width={150} height={150}/> */}
                     </div>
 
+                    <input type='checkbox' id='form-switch'/>
+                <form id='login-form' action="" method='post'>
                     <div className="container">
-                        <label form="uname"><b>@UWO Email Adress</b></label>
-                        <input type="text" placeholder="Enter email" name="uname" required/>
+                        <label form="email"><b>UWO Email Adress</b></label>
+                        <input type="text" placeholder="Enter email" name="email" required/>
+
+                        <label form="password"><b>Password</b></label>
+                        <input type="text" placeholder="Enter password" name="password" required/>
 
 
-                        <button type="submit" onClick={()=> this.onClick()}>Login</button>
+                        <button type="login">Login</button>
+                        <label type="reg" for='form-switch'><span>Don't have an account? Register</span></label>
 
+                    </div>
+                </form>
+
+                <form id='register-form' action="" method='post'>
+                    <div className={"container"}>
+                        <label form="firstName"><b>First Name</b></label>
+                        <input type="text" placeholder="Enter first name" name="firstName" required/>
+                        <label form="lastName"><b>Last Name</b></label>
+                        <input type="text" placeholder="Enter last name" name="lastName" required/>
+                        <label form="email"><b>UWO Email</b></label>
+                        <input type="text" placeholder="Enter password" name="email" required/>
+                        <label form="password"><b>Password</b></label>
+                        <input type="text" placeholder="Enter password" name="password" required/>
+                        <label form="password2"><b>Confirm Password</b></label>
+                        <input type="text" placeholder="Confirm password" name="password2" required/>
+
+                        <button type="login">Register</button><br/>
+                        <label type="reg" for='form-switch'>Already A Member ? Sign In Now..</label>
                     </div>
                 </form>
                 <div>

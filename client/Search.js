@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import {
+    Route,
+    NavLink,
+    HashRouter
+} from "react-router-dom";
+import Room from "./Room";
 
 class Search extends Component {
     render() {
@@ -24,7 +30,10 @@ class Search extends Component {
                     <option>101</option>
                     <option selected>Room...</option>
                 </select>
-
+                <hr/>
+                <div>
+                    <Route exact path={"/main/search"} component={Room}/>
+                </div>
             </div>
         );
     }
