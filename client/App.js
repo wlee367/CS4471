@@ -55,7 +55,7 @@ class App extends Component{
                         <input type="text" placeholder="Confirm password" name="password2" required/>
 
                         <button type="login">Register</button><br/>
-                        <label type="reg" for='form-switch'>Already A Member ? Sign In Now..</label>
+                        <label type="reg" for='form-switch'>Already a Member ? Sign In Now..</label>
                     </div>
                 </form>
                 <div>
