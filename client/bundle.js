@@ -24633,10 +24633,24 @@ var Settings = function (_Component) {
     function Settings() {
         _classCallCheck(this, Settings);
 
-        return _possibleConstructorReturn(this, (Settings.__proto__ || Object.getPrototypeOf(Settings)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Settings.__proto__ || Object.getPrototypeOf(Settings)).call(this));
+
+        _this.state = {
+            button: 'enable'
+        };
+
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
     }
 
     _createClass(Settings, [{
+        key: "handleChange",
+        value: function handleChange(event) {
+            this.setState({
+                button: event.target.value
+            });
+        }
+    }, {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
@@ -24654,25 +24668,25 @@ var Settings = function (_Component) {
                     "Direct Email Notifications:"
                 ),
                 _react2.default.createElement(
-                    "fieldset",
+                    "form",
                     null,
                     _react2.default.createElement(
                         "div",
                         null,
-                        _react2.default.createElement("input", { type: "checkbox", id: "enable", name: "interest", value: "enable" }),
                         _react2.default.createElement(
                             "label",
-                            { "for": "enable" },
+                            null,
+                            _react2.default.createElement("input", { type: "radio", value: "enable", name: "button", checked: this.state.button === 'enable', onChange: this.handleChange }),
                             "Enable"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
                         null,
-                        _react2.default.createElement("input", { type: "checkbox", id: "disable", name: "interest", value: "disable" }),
                         _react2.default.createElement(
                             "label",
-                            { "for": "disable" },
+                            null,
+                            _react2.default.createElement("input", { type: "radio", value: "disable", name: "button", checked: this.state.button === 'disable', onChange: this.handleChange }),
                             "Disable"
                         )
                     )

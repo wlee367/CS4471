@@ -1,6 +1,21 @@
 import React, { Component } from "react";
 
 class Settings extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            button: 'enable'
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({
+          button: event.target.value
+        });
+      }
 
     render() {
         return (
@@ -8,20 +23,23 @@ class Settings extends Component {
                 <h2>SETTINGS</h2>
                 <hr/>
                 <h3>Direct Email Notifications:</h3>
-                <fieldset>
+                 <form>
                     <div>
-                        <input type="checkbox" id="enable" name="interest" value="enable" />
-                            <label for="enable">Enable</label>
+                        <label>
+                             <input type="radio" value="enable" name = 'button' checked={this.state.button === 'enable'} onChange={this.handleChange} />
+                            Enable
+                        </label>
                     </div>
                     <div>
-                        <input type="checkbox" id="disable" name="interest" value="disable"/>
-                            <label for="disable">Disable</label>
+                        <label>
+                            <input type="radio" value="disable" name = 'button' checked={this.state.button === 'disable'} onChange={this.handleChange}/>
+                            Disable
+                        </label>
                     </div>
-                </fieldset>
+               </form>
 
             </div>
         );
     }
 }
-
 export default Settings;
