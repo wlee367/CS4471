@@ -13,7 +13,7 @@ class Search extends React.Component {
         super();
         this.state = {
             buildings:[],
-            value: ''
+            value: ""
         }
         console.log(this.state);
         this.render = this.render.bind(this);
@@ -21,19 +21,21 @@ class Search extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
-        console.log('fuck you sangeet');
-        console.log(this.state.value);
+        this.setState({
+            value: event.target.value
+        });
+        this.forceUpdate();
+        console.log(event.target.value);  
+        
         axios.post('/', {
-            value: this.state.value,
+            value: event.target.value,   
         })
          .then(function (response) {
-           console.log(response);
+             console.log(response);
          })
          .catch(function (error) {
            console.log(error);
          });
-         console.log(this.state.value);
       }
 
     componentDidMount(){
@@ -54,12 +56,11 @@ class Search extends React.Component {
                 <h2>SEARCH</h2>
                 <hr/>
                 <h3>Please choose a building:</h3>
-                <select value={this.state.value} onChange={this.handleChange}>
+                <select value={this.state.value} onChange={this.handleChange} >
                         {
                             this.state.buildings.map((build) =>  <option key={build} build={build}> {build} </option>)
                         }
                     <option selected>Building...</option>
-                    {console.log(this.state.value)}
                 </select>
 
                 <h3>Please choose a room:</h3>
