@@ -110,6 +110,9 @@ span.psw {
   }
 }
 
+h1{
+  color: white;
+}
 label {
   cursor:pointer
 }
