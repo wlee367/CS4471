@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/App.css';
-// import avatar from './assets/avatar.png';
+import avatar from './assets/avatar.png';
 import {
     Route,
     NavLink,
@@ -10,6 +10,21 @@ import Main from "./Main";
 
 
 class App extends Component{
+
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+    
+      handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        
+        fetch('/api/testData', {
+          method: 'POST',
+          body: data,
+        });
+      }
 
     onClick(){
     this.setState(prevState => ({ childVisible: !prevState.childVisible}));
@@ -22,7 +37,7 @@ class App extends Component{
                 <div>
                     <center><h1>Western Room Booker</h1></center>
                     <div className="imgcontainer">
-                        {/* <img src={avatar} alt="Missing string" width={150} height={150}/> */}
+                        {<img src={avatar} alt="Missing string" width={150} height={150}/>}
                     </div>
 
                     <input type='checkbox' id='form-switch'/>
@@ -41,7 +56,7 @@ class App extends Component{
                     </div>
                 </form>
 
-                <form id='register-form' action="" method='post'>
+                <form id='register-form'>
                     <div className={"container"}>
                         <label form="firstName"><b>First Name</b></label>
                         <input type="text" placeholder="Enter first name" name="firstName" required/>
