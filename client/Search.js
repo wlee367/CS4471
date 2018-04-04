@@ -15,31 +15,31 @@ class Search extends React.Component {
             buildings:[]
         }
         console.log(this.state);
-        this.render = this.render.bind(this.state.buildings);
+        this.render = this.render.bind(this);
     }
+
     componentDidMount(){
         axios.get('/API/search')
         .then(resp=> {
             // console.log(resp.data);
             this.setState({
-                buildings: resp.data,
-            })
+                buildings: resp.data.buildings,
+            });
         }).catch(console.error);
+
+
     }
     render() {
-        // console.log(typeof(this.state.buildings));
+        console.log((this.state.buildings));
         return (
             <div>
                 <h2>SEARCH</h2>
                 <hr/>
                 <h3>Please choose a building:</h3>
                 <select>
-                    <option>
-
-                        {this.state.buildings.map((build)=>{
-                            <option>build</option>
-                        })};
-                    </option>
+                        {
+                            this.state.buildings.map((build) =>  <option key={build}> {build} </option>)
+                        }
                     <option selected>Building...</option>
                 </select>
 

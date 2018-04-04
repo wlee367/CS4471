@@ -30,7 +30,7 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
       uniqueArray = location.filter(function(elem, pos) {
         return location.indexOf(elem) == pos;
       });
-      res.send(uniqueArray);
+      res.send({buildings: uniqueArray});
       });
   })
 });
