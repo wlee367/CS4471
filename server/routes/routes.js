@@ -1,14 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const {
-  mongoose
-} = require('../db/db');
-const {
-  Room
-} = require('../models/Room');
-const {
-  User
-} = require('../models/User');
+const {mongoose} = require('../db/db');
+const {Room} = require('../models/Room');
+const {User} = require('../models/User');
 const assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
 
@@ -19,7 +13,13 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
   const db = database.db('4471');
   let location = [];
   let uniqueArray = [];
+
   router.get('/', function (req, res) {
+        res.render('index.ejs');
+      
+  });
+
+  router.get('/API/search', function(req,res) {
     db.collection('Courses').find().toArray(
       function (err, result){
         if(err)
@@ -30,20 +30,9 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
       uniqueArray = location.filter(function(elem, pos) {
         return location.indexOf(elem) == pos;
       });
-      // console.log(uniqueArray);
+      res.send(uniqueArray);
       });
-  
-    db.collection('Courses').find({
-      start: '9:30 AM'
-    }).toArray(
-      function (err, result) {
-        res.render('index.ejs', {
-          'Courses': result,
-          'Buildings': uniqueArray
-        });
-      }
-    );
-  });
+  })
 });
 
 module.exports = router;
