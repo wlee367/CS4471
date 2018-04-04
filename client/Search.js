@@ -13,6 +13,7 @@ class Search extends React.Component {
         super();
         this.state = {
             buildings:[],
+            rooms:[],
             value: ""
         }
         console.log(this.state);
@@ -65,7 +66,9 @@ class Search extends React.Component {
 
                 <h3>Please choose a room:</h3>
                 <select>
-                    <option>101</option>
+                {
+                            this.state.rooms.map((room) =>  <option key={room}> {room} </option>)
+                        }
                     <option selected>Room...</option>
                 </select>
                 <hr/>

@@ -33,21 +33,21 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
 
 // console.log(building_to_query);
   router.get('/API/building', function(req, res){
+    
     db.collection('Courses').find(query_for_rooms).toArray(
       function(err, result){
+
         console.log(query_for_rooms);
         if(err)
           console.log(err);
         result.forEach((record)=>{
           room.push(record.room);
-          // console.log(record.room);
-          // console.log(room);
         });
       uniqueRoomArray = room.filter(function(elem,pos){
-        return location.indexOf(elem) == pos;
+        return room.indexOf(elem) == pos;
       });
       res.send({rooms:uniqueRoomArray});
-      //res.send(result);
+      uniqueRoomArray=[];
     });
   })
 
