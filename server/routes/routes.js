@@ -18,6 +18,11 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
         res.render('index.ejs');
       
   });
+  router.post('/', function (req, res) {
+    res.send('got the data we needed');
+    console.log(req.body);
+  
+});
 
   router.get('/API/search', function(req,res) {
     db.collection('Courses').find().toArray(
