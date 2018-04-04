@@ -18,6 +18,7 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
   console.log("Successfully connected to MongoDB.");
   const db = database.db('4471');
   let location = [];
+  let uniqueArray = [];
   router.get('/', function (req, res) {
     db.collection('Courses').find().toArray(
       function (err, result){
@@ -30,21 +31,16 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
         return location.indexOf(elem) == pos;
       });
       // console.log(uniqueArray);
-      res.render({
-        "buildings": uniqueArray
-        });
       });
-
-      
-    
+  
     db.collection('Courses').find({
       start: '9:30 AM'
     }).toArray(
       function (err, result) {
         res.render('index.ejs', {
-          'Courses': result
+          'Courses': result,
+          'Buildings': uniqueArray
         });
-        // db.Courses.aggregate([{$group: {"_id":"$building"}}])
       }
     );
   });

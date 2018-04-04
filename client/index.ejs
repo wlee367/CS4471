@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
 
-    <title>Room Booker - UWO la lal al lalalala</title>
+    <title>Room Booker - UWO</title>
 </head>
 
 <body>
@@ -24,14 +24,13 @@
 
 
                 <%}); %> -->
-                <% buildings.forEach((c) => {
-                    %> <div><%= c %> </div>
+                <select>
+                    <% Buildings.map(item=> { %>
+                     <option id="<%= item%>"> <%= item %> </option>
+                    <% }) %>
+                    
+                    <select>
 
-                    %> <div><hr></div>
-    
-    
-    
-                    <%}); %>
     </div>
     
 
