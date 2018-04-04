@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/App.css';
-import avatar from './assets/avatar.png';
+//import avatar from './assets/avatar.png';
 import {
     Route,
     NavLink,
@@ -37,7 +37,7 @@ class App extends Component{
                 <div>
                     <center><h1>Western Room Booker</h1></center>
                     <div className="imgcontainer">
-                        {<img src={avatar} alt="Missing string" width={150} height={150}/>}
+                        {/*<img src={avatar} alt="Missing string" width={150} height={150}/>*/}
                     </div>
 
                     <input type='checkbox' id='form-switch'/>
