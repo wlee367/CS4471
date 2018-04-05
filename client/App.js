@@ -8,28 +8,12 @@ import {
 } from "react-router-dom";
 import Main from "./Main";
 
-
 class App extends Component{
 
-    constructor() {
-        super();
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleSubmit(event) {
-        event.preventDefault();
-        const data = new FormData(event.target);
-        
-        fetch('/api/testData', {
-          method: 'POST',
-          body: data,
-        });
-      }
 
     onClick(){
-    this.setState(prevState => ({ childVisible: !prevState.childVisible}));
+        this.setState(prevState => ({ childVisible: !prevState.childVisible}));
     }
-
 
     render() {
         return (
@@ -41,17 +25,19 @@ class App extends Component{
                     </div>
 
                     <input type='checkbox' id='form-switch'/>
-                <form id='login-form' action="" method='post'>
+                <form id='login-form' action="" method='post' onSubmit={this.handleSubmit}>
                     <div className="container">
                         <label form="email"><b>UWO Email Adress</b></label>
                         <input type="text" placeholder="Enter email" name="email" required/>
 
                         <label form="password"><b>Password</b></label>
                         <input type="text" placeholder="Enter password" name="password" required/>
+                        <br/>
 
 
                         <button type = 'login'><NavLink type = 'nav' exact to={"/main"}>Log In</NavLink><br/></button>
                         <label type="reg" for='form-switch'><span>Don't have an account? Register</span></label>
+
 
                     </div>
                 </form>
@@ -68,6 +54,7 @@ class App extends Component{
                         <input type="text" placeholder="Enter password" name="password" required/>
                         <label form="password2"><b>Confirm Password</b></label>
                         <input type="text" placeholder="Confirm password" name="password2" required/>
+                        <br/>
 
                         <NavLink  id="formswitch" exact to={"/main"}>Log In</NavLink><br/>
                         <label type="reg" for='form-switch'>Already a Member ? Sign In Now..</label>
@@ -82,5 +69,12 @@ class App extends Component{
     }
 }
 
-
 export default App;
+
+function stringifyFormData(fd) {
+    const data = {};
+    for (let key of fd.keys()){
+        data[key] = fd.get(key);
+    }
+    return JSON.stringify(data, null, 2)
+};

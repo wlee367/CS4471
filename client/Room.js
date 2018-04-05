@@ -1,9 +1,17 @@
 import React, { Component } from "react";
+// import $ from 'jquery';
+// import 'fullcalendar';
+import CommentBox from "./Comments"
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import events from './Events'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import axios from 'axios';
+
+var data = [
+    {id: 1, author: "Pete Hunt", text: "This is one comment"},
+    {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+];
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 
@@ -53,7 +61,7 @@ class Room extends React.Component {
                         dataArray.push(actualdays);
                         actualdays = {};
 
-                
+
                     }
                     });
             });
@@ -61,12 +69,12 @@ class Room extends React.Component {
                 dataArrayOG: dataArray,
                 actualdaysOG: actualdays
             });
-            
-        
+
+
         }).catch(console.error);
     }
 
-    
+
     render() {
         return (
             <div>
@@ -74,12 +82,14 @@ class Room extends React.Component {
 
                 <h2>ROOM INFO</h2><br/>
                 {
-                            this.state.dataArrayOG.map((build) => 
+                            this.state.dataArrayOG.map((build) =>
                             <li> This room is busy on {build.days} from {build.start_time} till {build.end_time} </li>
                         )
-                        
+
                 }
                 <h2>COMMENTS</h2>
+
+
             </div>
         );
     }
