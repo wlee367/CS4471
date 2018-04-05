@@ -13,7 +13,9 @@ class Room extends React.Component {
     constructor(){
         super();
         this.state = {
-            roomdata: []
+            roomdata: [],
+            dataArrayOG: [],
+            actualdaysOG: {}
 
         }
         this.render = this.render.bind(this);
@@ -24,42 +26,59 @@ class Room extends React.Component {
     onClick(){
         axios.get('/API/roominfo')
         .then(resp=> {
-            // console.log(resp.data);
             this.setState({
                 roomdata: resp.data,
             });
+            let dataArray = [];
+            let actualdays = {};
+            let data = this.state.roomdata;
+            data.forEach(dataId => {
+                let days = dataId.days;
+                days.forEach(element => {
+                    if(element !== "  "){
+                        if (element === ' M')
+                            element = "Monday"
+                        if (element === ' Tu')
+                            element = "Tuesday"
+                        if (element === ' W')
+                            element = "Wednesday"
+                        if (element === ' Th')
+                            element = "Thursday"
+                        if (element === ' F')
+                            element = "Friday"
 
-            
-            console.log(this.state.roomdata[0].days);
-            let days = this.state.roomdata[0].days;
-            let actualdays = [];
-            days.forEach(element => {
-                if(element !== "  "){
-                    actualdays.push(element);
-                }
+                        actualdays["days"] = element;
+                        actualdays["start_time"] = dataId.start;
+                        actualdays["end_time"] = dataId.end;
+                        dataArray.push(actualdays);
+                        actualdays = {};
+
+                
+                    }
+                    });
             });
-            console.log(actualdays);
-            console.log('here');
+            this.setState({
+                dataArrayOG: dataArray,
+                actualdaysOG: actualdays
+            });
+            
+        
         }).catch(console.error);
-        console.log(this.state.roomdata)
-
-
     }
 
     
     render() {
         return (
             <div>
-                <button type="button" onClick={this.onClick}>Load all the Room info</button>
+                <button type="button" onClick={this.onClick}>Submit</button>
+
                 <h2>ROOM INFO</h2><br/>
-                <h2>SCHEDULE</h2><br/>
-                <BigCalendar
-                    events={events}
-                    views={allViews}
-                    step={60}
-                    showMultiDayTimes
-                    defaultDate={new Date(2015, 3, 1)}
-                />
+                {
+                            this.state.dataArrayOG.map((build) => 
+                            <li> This room is busy on {build.days} from {build.start_time} till {build.end_time} </li>
+                        )
+                        
+                }
                 <h2>COMMENTS</h2>
             </div>
         );
