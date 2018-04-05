@@ -50,7 +50,7 @@ class App extends Component{
                         <input type="text" placeholder="Enter password" name="password" required/>
 
 
-                        <button type="login">Login</button>
+                        <NavLink exact to={"/main"}>Log In</NavLink><br/>
                         <label type="reg" for='form-switch'><span>Don't have an account? Register</span></label>
 
                     </div>
@@ -69,12 +69,11 @@ class App extends Component{
                         <label form="password2"><b>Confirm Password</b></label>
                         <input type="text" placeholder="Confirm password" name="password2" required/>
 
-                        <button type="login">Register</button><br/>
+                        <NavLink exact to={"/main"}>Log In</NavLink><br/>
                         <label type="reg" for='form-switch'>Already a Member ? Sign In Now..</label>
                     </div>
                 </form>
                 <div>
-                    <NavLink exact to={"/main"}>Log In</NavLink><br/>
                     <Route path={"/main"} component={Main}/></div>
                 </div>
             </HashRouter>
