@@ -19,11 +19,11 @@ class Main extends Component {
                 <div>
                     <center><h1 className="title">Western Room Booker</h1></center>
                     <ul className="header">
-                        <li><NavLink exact to={"/main"} >Home</NavLink></li>
-                        <li><NavLink exact to={"/main/search"}>Search</NavLink></li>
-                        <li><NavLink exact to={"/main/profile"} >Profile</NavLink></li>
-                        <li><NavLink exact to={"/main/settings"} >Settings</NavLink></li>
-                        <li><NavLink exact to={"/main/bookings"} >Bookings</NavLink></li>
+                        <li><NavLink type = 'menu' exact to={"/main"} >Home</NavLink></li>
+                        <li><NavLink type = 'menu' exact to={"/main/search"}>Search</NavLink></li>
+                        <li><NavLink type = 'menu' exact to={"/main/profile"} >Profile</NavLink></li>
+                        <li><NavLink type = 'menu' exact to={"/main/settings"} >Settings</NavLink></li>
+                        <li><NavLink type = 'menu' exact to={"/main/bookings"} >Bookings</NavLink></li>
                     </ul>
                     <div className="content">
                         <Route  exact path={"/main"} component={Home}/>

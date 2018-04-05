@@ -38,7 +38,7 @@ ul.header li a {
     margin-bottom: 10px;
 }
 
-.active {
+a.active[type='menu'] {
     background-color: #DCDCDC;
     border: 0;
 }

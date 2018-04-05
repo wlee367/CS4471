@@ -72,12 +72,12 @@ a[type=nav]{
   position: center;
 }
 
-a:visited[type=nav] {
-  background: linear-gradient(green , darkgreen)
+a:visited[type=nav]{
+  background-color: linear-gradient(green , darkgreen)
 }
 
 a:active[type=nav]{
-  color: linear-gradient(green , darkgreen)
+  background-color: linear-gradient(green , darkgreen)
 }
 
 /* Add a hover effect for buttons */
