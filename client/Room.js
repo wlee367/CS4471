@@ -28,7 +28,22 @@ class Room extends React.Component {
             this.setState({
                 roomdata: resp.data,
             });
+
+            
+            console.log(this.state.roomdata[0].days);
+            let days = this.state.roomdata[0].days;
+            let actualdays = [];
+            days.forEach(element => {
+                if(element !== "  "){
+                    actualdays.push(element);
+                }
+            });
+            console.log(actualdays);
+            console.log('here');
         }).catch(console.error);
+        console.log(this.state.roomdata)
+
+
     }
 
     
@@ -36,7 +51,6 @@ class Room extends React.Component {
         return (
             <div>
                 <button type="button" onClick={this.onClick}>Load all the Room info</button>
-                {console.log(this.state.roomdata)}
                 <h2>ROOM INFO</h2><br/>
                 <h2>SCHEDULE</h2><br/>
                 <BigCalendar
