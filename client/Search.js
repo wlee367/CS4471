@@ -13,22 +13,25 @@ class Search extends React.Component {
         super();
         this.state = {
             buildings:[],
-            value: ""
+            rooms:[],
+            value: "",
         }
         console.log(this.state);
         this.render = this.render.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleChanged = this.handleChanged.bind(this);
+
     }
 
     handleChange(event) {
         this.setState({
-            value: event.target.value
+            value: event.target.value,
         });
         this.forceUpdate();
         console.log(event.target.value);  
         
         axios.post('/', {
-            value: event.target.value,   
+            value: event.target.value,
         })
          .then(function (response) {
              console.log(response);
@@ -36,7 +39,38 @@ class Search extends React.Component {
          .catch(function (error) {
            console.log(error);
          });
+
+         // new get request to dynamically render rooms
+         axios.get('/API/building')
+         .then( 
+             response => {
+                 this.setState({
+                     rooms: response.data.rooms,
+                 });
+             }
+         );
       }
+// -------------------------------------------------------------------------------------------------------------//
+      handleChanged(event) {
+        this.setState({
+            value: event.target.value,
+        });
+        this.forceUpdate();
+        console.log('hahahah im hereeeee');
+        console.log(event.target.value); 
+        console.log(this.state);
+ 
+        
+        axios.post('/API/building', {
+            roomnumber: event.target.value   
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
 
     componentDidMount(){
         axios.get('/API/search')
@@ -48,12 +82,13 @@ class Search extends React.Component {
         }).catch(console.error);
 
 
+
     }
     render() {
-        console.log((this.state.buildings));
+
         return (
             <div>
-                <h2>SEARCH</h2>
+                <h2> SEARCH </h2>
                 <hr/>
                 <h3>Please choose a building:</h3>
                 <select value={this.state.value} onChange={this.handleChange} >
@@ -64,8 +99,10 @@ class Search extends React.Component {
                 </select>
 
                 <h3>Please choose a room:</h3>
-                <select>
-                    <option>101</option>
+                <select roomnumber={this.state.roomnumber} onChange={this.handleChanged}>
+                {
+                            this.state.rooms.map((room) =>  <option key={room}  room={room}> {room} </option>)
+                        }
                     <option selected>Room...</option>
                 </select>
                 <hr/>
