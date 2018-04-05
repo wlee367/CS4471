@@ -37,6 +37,16 @@ class Search extends React.Component {
          .catch(function (error) {
            console.log(error);
          });
+
+         // new get request to dynamically render rooms
+         axios.get('/API/building')
+         .then( 
+             response => {
+                 this.setState({
+                     rooms: response.data.rooms,
+                 });
+             }
+         );
       }
 
     componentDidMount(){
@@ -49,9 +59,10 @@ class Search extends React.Component {
         }).catch(console.error);
 
 
+
     }
     render() {
-        console.log((this.state.buildings));
+
         return (
             <div>
                 <h2>SEARCH</h2>

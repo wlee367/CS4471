@@ -36,7 +36,7 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
     
     db.collection('Courses').find(query_for_rooms).toArray(
       function(err, result){
-
+        room = [];
         console.log(query_for_rooms);
         if(err)
           console.log(err);
@@ -47,7 +47,7 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
         return room.indexOf(elem) == pos;
       });
       res.send({rooms:uniqueRoomArray});
-      uniqueRoomArray=[];
+      
     });
   })
 
