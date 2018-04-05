@@ -50,7 +50,7 @@ class App extends Component{
                         <input type="text" placeholder="Enter password" name="password" required/>
 
 
-                        <NavLink exact to={"/main"}>Log In</NavLink><br/>
+                        <button type = 'login'><NavLink type = 'nav' exact to={"/main"}>Log In</NavLink><br/></button>
                         <label type="reg" for='form-switch'><span>Don't have an account? Register</span></label>
 
                     </div>
@@ -69,7 +69,7 @@ class App extends Component{
                         <label form="password2"><b>Confirm Password</b></label>
                         <input type="text" placeholder="Confirm password" name="password2" required/>
 
-                        <NavLink exact to={"/main"}>Log In</NavLink><br/>
+                        <button type = 'login'><NavLink type = 'nav' exact to={"/main"}>Register</NavLink><br/></button>
                         <label type="reg" for='form-switch'>Already a Member ? Sign In Now..</label>
                     </div>
                 </form>

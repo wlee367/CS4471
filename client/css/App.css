@@ -64,6 +64,22 @@ button[type=update] {
   cursor: pointer;
 }
 
+a[type=nav]{
+  color: white;
+  display: block;
+  text-decoration: none;
+  font-family: Arial;
+  position: center;
+}
+
+a:visited[type=nav] {
+  background: linear-gradient(green , darkgreen)
+}
+
+a:active[type=nav]{
+  color: linear-gradient(green , darkgreen)
+}
+
 /* Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;
