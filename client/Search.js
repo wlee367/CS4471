@@ -80,10 +80,8 @@ class Search extends React.Component {
                 buildings: resp.data.buildings,
             });
         }).catch(console.error);
-
-
-
     }
+    
     render() {
 
         return (
