@@ -14,22 +14,24 @@ class Search extends React.Component {
         this.state = {
             buildings:[],
             rooms:[],
-            value: ""
+            value: "",
         }
         console.log(this.state);
         this.render = this.render.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleChanged = this.handleChanged.bind(this);
+
     }
 
     handleChange(event) {
         this.setState({
-            value: event.target.value
+            value: event.target.value,
         });
         this.forceUpdate();
         console.log(event.target.value);  
         
         axios.post('/', {
-            value: event.target.value,   
+            value: event.target.value,
         })
          .then(function (response) {
              console.log(response);
@@ -48,6 +50,27 @@ class Search extends React.Component {
              }
          );
       }
+// -------------------------------------------------------------------------------------------------------------//
+      handleChanged(event) {
+        this.setState({
+            value: event.target.value,
+        });
+        this.forceUpdate();
+        console.log('hahahah im hereeeee');
+        console.log(event.target.value); 
+        console.log(this.state);
+ 
+        
+        axios.post('/API/building', {
+            roomnumber: event.target.value   
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
 
     componentDidMount(){
         axios.get('/API/search')
@@ -65,7 +88,7 @@ class Search extends React.Component {
 
         return (
             <div>
-                <h2>SEARCH</h2>
+                <h2> SEARCH </h2>
                 <hr/>
                 <h3>Please choose a building:</h3>
                 <select value={this.state.value} onChange={this.handleChange} >
@@ -76,9 +99,9 @@ class Search extends React.Component {
                 </select>
 
                 <h3>Please choose a room:</h3>
-                <select>
+                <select roomnumber={this.state.roomnumber} onChange={this.handleChanged}>
                 {
-                            this.state.rooms.map((room) =>  <option key={room}> {room} </option>)
+                            this.state.rooms.map((room) =>  <option key={room}  room={room}> {room} </option>)
                         }
                     <option selected>Room...</option>
                 </select>

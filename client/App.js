@@ -69,7 +69,7 @@ class App extends Component{
                         <label form="password2"><b>Confirm Password</b></label>
                         <input type="text" placeholder="Confirm password" name="password2" required/>
 
-                        <NavLink exact to={"/main"}>Log In</NavLink><br/>
+                        <NavLink  id="formswitch" exact to={"/main"}>Log In</NavLink><br/>
                         <label type="reg" for='form-switch'>Already a Member ? Sign In Now..</label>
                     </div>
                 </form>
