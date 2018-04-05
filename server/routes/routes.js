@@ -92,7 +92,7 @@ MongoClient.connect('mongodb://admin:admin@ds155278.mlab.com:55278/4471', functi
         roomInfo = roomdata.filter(function(elem, pos) {
           return roomdata.indexOf(elem) == pos;
         });
-        res.send({roomInfo: roomInfo});
+        res.send(roomInfo);
       })
 
   });
